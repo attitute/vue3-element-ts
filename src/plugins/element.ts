@@ -1,4 +1,12 @@
-import { ElButton, locale } from 'element-plus'
+import {
+  ElButton,
+  locale,
+  ElMenu,
+  ElMessage,
+  ElMenuItem,
+  ElSubmenu
+
+} from 'element-plus'
 // element-plus默认是英文
 import lang from 'element-plus/lib/locale/lang/zh-cn'
 import 'element-plus/lib/theme-chalk/index.css'
@@ -10,7 +18,11 @@ export default (app:App): void => {
   locale(lang) // 语言
 
   const components = [
-    ElButton
+    ElButton,
+    ElMenu,
+    ElMessage,
+    ElMenuItem,
+    ElSubmenu
   ]
 
   // vue挂载全局

@@ -1,0 +1,42 @@
+
+
+$vm_fontsize: 75; // 根元素大小
+
+// 像素替换成rem  px相当于多少个rem
+@function rem($px){
+    @return ($px / $vm_fontsize) * 1rem
+}
+
+$base_design: 750; // 物理像素
+
+html {
+    // 计算根元素在不同手机下的 大小
+    font-size: ($vw_fontsize / ($base_design / 2)) * 100vw;
+
+    // 设置size边界值
+    // @media screen and (max-width: 320px) {
+    //     font-size: 64px;
+    // }
+    // @media screen and (min-width: 540px) {
+    //     font-size: 108px;
+    // }
+}
+
+// 设置body的边界值  避免默认100%宽度的 block 元素跟随 body 而过大过小（如果不需要那就不要设置边界值）
+// body {
+//     max-width: 540px;
+//     min-width: 540px;
+// }
+
+
+
+// 纯vw方法
+
+// px直接按照设计图750px写
+@function vw($px){
+    @return ($px / $base_design) * 100vw
+}
+
+
+
+

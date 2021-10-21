@@ -1,6 +1,8 @@
 <template>
   <div class="app-wrapper">
-    <div class="sidebar-container">sidebar</div>
+    <div class="sidebar-container">
+      <Sidebar />
+    </div>
     <div class="main-container">
       <div class="header">
         <div class="navbar">navbar</div>
@@ -14,6 +16,15 @@
   </div>
 </template>
 
+<script>
+import Sidebar from './components/Sidebar'
+export default {
+  components: {
+    Sidebar
+  }
+}
+</script>
+
 <style lang="scss" scoped>
   .app-wrapper {
     display: flex;
@@ -24,20 +35,20 @@
       display: flex;
       flex-direction: column;
       .header {
-        background: cyan;
+        background: rgb(198, 202, 202);
         .navbar {
           height: 50px;
-          background: #1890ff;
+          background: #727577;
         }
         .tags-view {
           height: 34px;
-          background: #12efff;
+          background: #3c3d3d;
         }
       }
       .app-main {
         /* 50= navbar  50  如果有tagsview + 34  */
         min-height: calc(100vh - 84px);
-        background: red;
+        background: rgb(80, 79, 79);
       }
     }
   }
