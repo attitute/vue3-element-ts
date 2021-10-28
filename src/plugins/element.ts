@@ -4,7 +4,8 @@ import {
   ElMenu,
   ElMessage,
   ElMenuItem,
-  ElSubmenu
+  ElSubmenu,
+  ElMenuItemGroup
 
 } from 'element-plus'
 // element-plus默认是英文
@@ -19,10 +20,11 @@ export default (app:App): void => {
 
   const components = [
     ElButton,
-    ElMenu,
     ElMessage,
+    ElMenu,
     ElMenuItem,
-    ElSubmenu
+    ElSubmenu,
+    ElMenuItemGroup
   ]
 
   // vue挂载全局

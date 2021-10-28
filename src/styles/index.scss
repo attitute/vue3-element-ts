@@ -1,6 +1,6 @@
 @import './variables.scss';
 @import './sidebar.scss';
-@import './adapter.scss';
+// @import './adapter.scss';
 
 
 
@@ -19,4 +19,18 @@ body {
 
 #app {
   height: 100%;
+}
+
+// a标签默认样式调整
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
 }

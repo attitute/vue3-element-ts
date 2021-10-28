@@ -11,7 +11,7 @@ $base_design: 750; // 物理像素
 
 html {
     // 计算根元素在不同手机下的 大小
-    font-size: ($vw_fontsize / ($base_design / 2)) * 100vw;
+    font-size: ($vm_fontsize / ($base_design / 2)) * 100vw;
 
     // 设置size边界值
     // @media screen and (max-width: 320px) {
