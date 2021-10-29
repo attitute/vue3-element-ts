@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <h1 @click="isCollapse = !isCollapse">233</h1>
+    <h1 @click="isCollapse = !isCollapse" style="color:#fff;font-size: 20px" >按钮</h1>
     <el-menu
       class="sidebar-container-menu"
       mode="vertical"
