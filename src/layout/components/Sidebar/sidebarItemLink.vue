@@ -18,7 +18,7 @@ export default defineComponent({
   },
   setup(props) {
     // 是不是外链
-    const isExt = computed(() => isExternal(props.to))
+    const isExt = computed(() => isExternal(props.to || ''))
     // 标签类型
     const type = computed(() => {
       if (isExt.value) return 'a'

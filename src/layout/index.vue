@@ -8,19 +8,18 @@
         <div class="navbar">navbar</div>
         <div class="tagsview">tagsview</div>
       </div>
-      <div class="app-main">
-        <h2>app main</h2>
-        <router-view></router-view>
-      </div>
+      <AppMain />
     </div>
   </div>
 </template>
 
 <script>
 import Sidebar from './components/Sidebar'
+import AppMain from './components/AppMain'
 export default {
   components: {
-    Sidebar
+    Sidebar,
+    AppMain
   }
 }
 </script>

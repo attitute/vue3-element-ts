@@ -41,7 +41,8 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     redirect: '/system/user',
     meta: {
       title: 'System',
-      icon: 'lock'
+      icon: 'lock',
+      alwaysShow: true
     },
     children: [
       {
@@ -49,20 +50,6 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "menu" */ '@/views/system/menu.vue'),
         meta: {
           title: 'Menu Management'
-        }
-      },
-      {
-        path: 'role',
-        component: () => import(/* webpackChunkName: "role" */ '@/views/system/role.vue'),
-        meta: {
-          title: 'Role Management'
-        }
-      },
-      {
-        path: 'user',
-        component: () => import(/* webpackChunkName: "user" */ '@/views/system/user.vue'),
-        meta: {
-          title: 'User Management'
         }
       }
     ]
