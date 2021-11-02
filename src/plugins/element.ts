@@ -5,7 +5,10 @@ import {
   ElMessage,
   ElMenuItem,
   ElSubmenu,
-  ElMenuItemGroup
+  ElMenuItemGroup,
+  ElCol,
+  ElBreadcrumb,
+  ElBreadcrumbItem
 
 } from 'element-plus'
 // element-plus默认是英文
@@ -24,7 +27,10 @@ export default (app:App): void => {
     ElMenu,
     ElMenuItem,
     ElSubmenu,
-    ElMenuItemGroup
+    ElMenuItemGroup,
+    ElCol,
+    ElBreadcrumb,
+    ElBreadcrumbItem
   ]
 
   // vue挂载全局

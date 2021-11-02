@@ -83,11 +83,6 @@ export default defineComponent({
       return children.length
     })
 
-    // 设置 alwaysShow: true，这样它就会忽略上面定义的规则，一直显示根路由 哪怕只有一个子路由也会显示为嵌套的路由菜单
-    const alwaysShowRootMenu = computed(
-      () => props.item.meta && props.item.meta.alwaysShow
-    )
-
     // 要渲染的单个路由 如果该路由只有一个子路由 默认直接渲染这个子路由
     const theOnlyOneChildRoute = computed(() => {
       // 子路由大于1 不是单个渲染路由
@@ -95,7 +90,6 @@ export default defineComponent({
         return null
       }
 
-      // if (alwaysShowRootMenu.value) return null
       // 只有一个子路由并且不需要暂时根路由时 直接用当前父路由的子路由进行渲染
       if (item.value.children) {
         for (const child of item.value.children) {
@@ -113,6 +107,8 @@ export default defineComponent({
       }
     })
 
+    // 是否有可渲染子路由
+    const noShowingChildren = computed(() => showingChildNumber.value === 0)
     // menu icon
     const icon = computed(() => {
       // 子路由没有icon 就用父路由的
@@ -127,8 +123,10 @@ export default defineComponent({
       return path.resolve(props.basePath, childPath)
     }
 
-    // 是否有可渲染子路由
-    const noShowingChildren = computed(() => showingChildNumber.value === 0)
+    // 设置 alwaysShow: true，这样它就会忽略上面定义的规则，一直显示根路由 哪怕只有一个子路由也会显示为嵌套的路由菜单
+    const alwaysShowRootMenu = computed(
+      () => props.item.meta && props.item.meta.alwaysShow
+    )
 
     // 是否只有一条可渲染路由
     const isRenderSingleRoute = computed(() => !alwaysShowRootMenu.value && (!theOnlyOneChildRoute.value?.children || noShowingChildren.value))

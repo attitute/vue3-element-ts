@@ -38,8 +38,11 @@ export default defineComponent({
     console.log('route', route)
     // 根据路由路径 对应 当前激活的菜单 页面刷新后 激活当前路由匹配的菜单
     const activeMenu = computed(() => {
-      const { path } = route
-      console.log('route', path)
+      const { path, meta } = route
+      // 如果有指定的激活菜单
+      if (meta.activeMenu) {
+        return meta.activeMenu
+      }
       return path
     })
     // 导入全局样式 scss变量

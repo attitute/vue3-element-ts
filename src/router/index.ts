@@ -52,6 +52,14 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
           title: 'Menu Management'
         }
       }
+      // {
+      //   path: 'role',
+      //   component: () => import(/* webpackChunkName: "menu" */ '@/views/system/role.vue'),
+      //   meta: {
+      //     title: 'Role Management',
+      //     hidden: true
+      //   }
+      // }
     ]
   },
   { // 外链路由
