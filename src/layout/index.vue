@@ -5,7 +5,7 @@
     </div>
     <div class="main-container">
       <div class="header">
-        <div class="navbar">navbar</div>
+        <Navbar />
         <div class="tagsview">tagsview</div>
       </div>
       <AppMain />
@@ -16,10 +16,12 @@
 <script>
 import Sidebar from './components/Sidebar'
 import AppMain from './components/AppMain'
+import Navbar from './components/Navbar'
 export default {
   components: {
     Sidebar,
-    AppMain
+    AppMain,
+    Navbar
   }
 }
 </script>
