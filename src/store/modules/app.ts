@@ -1,4 +1,4 @@
-import { MutationTree, ActionTree, ModuleTree, Module } from 'vuex'
+import { MutationTree, ActionTree, Module } from 'vuex'
 import { IRootState } from '../index'
 // 定义app里state的类型
 export interface IAppState {

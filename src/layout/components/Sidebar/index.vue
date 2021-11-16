@@ -1,6 +1,5 @@
 <template>
   <div class="sidebar">
-    <h1 @click="isCollapse = !isCollapse" style="color:#fff;font-size: 20px" >按钮</h1>
     <el-menu
       class="sidebar-container-menu"
       mode="vertical"
@@ -27,7 +26,7 @@ import { defineComponent, ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { routes } from '@/router'
 import SidebarItem from './SidebarItem.vue'
-
+import { useStore } from '@/store'
 export default defineComponent({
   name: 'Sidebar',
   components: {
@@ -35,7 +34,8 @@ export default defineComponent({
   },
   setup() {
     const route = useRoute() // 相当于this.$route
-    console.log('route', route)
+    const store = useStore()
+    console.log('store:', useStore)
     // 根据路由路径 对应 当前激活的菜单 页面刷新后 激活当前路由匹配的菜单
     const activeMenu = computed(() => {
       const { path, meta } = route
@@ -48,7 +48,7 @@ export default defineComponent({
     // 导入全局样式 scss变量
     const scssVariables = computed(() => variables)
     // 响应式
-    const isCollapse = ref(true)
+    const isCollapse = computed(() => !store.getters.sidebar.opened)
     // 路由
     const menuRoutes = computed(() => routes)
     return {
