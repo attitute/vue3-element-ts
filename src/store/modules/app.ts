@@ -1,23 +1,23 @@
-import { MutationTree, ActionTree, Module } from 'vuex'
+import { ActionTree, Module, MutationTree } from 'vuex'
 import { IRootState } from '../index'
-// 定义app里state的类型
-export interface IAppState {
-  sidebar:{
-    opened: boolean
-  }
-}
+import { Size } from '@/plugins/element'
 
-// 定义state
-const state: IAppState = {
+// 定义app里state类型
+export interface IAppState {
   sidebar: {
-    opened: true
-  }
+    opened: boolean,
+    num: number
+  },
+  size: Size
 }
 
 // 定义mutations
 const mutations: MutationTree<IAppState> = {
   TOGGLE_SIDEBAR(state) {
     state.sidebar.opened = !state.sidebar.opened
+  },
+  SET_SIZE(state, payload: Size) {
+    state.size = payload
   }
 }
 
@@ -25,13 +25,24 @@ const mutations: MutationTree<IAppState> = {
 const actions: ActionTree<IAppState, IRootState> = {
   toggleSidebar({ commit }) {
     commit('TOGGLE_SIDEBAR')
+  },
+  setSize({ commit }, payload: Size) {
+    commit('SET_SIZE', payload)
   }
 }
 
-const app:Module<IAppState, IRootState> = {
+// 定义module
+const app: Module<IAppState, IRootState> = {
   namespaced: true,
-  state,
+  state: {
+    sidebar: {
+      opened: true,
+      num: 2
+    },
+    size: 'medium'
+  },
   mutations,
   actions
 }
+
 export default app

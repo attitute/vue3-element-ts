@@ -42,6 +42,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     meta: {
       title: 'System',
       icon: 'lock',
+      breadcrumb: false,
       alwaysShow: true
     },
     children: [
@@ -81,8 +82,8 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
 export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Layout',
     component: Layout,
+    redirect: '/dashboard',
     children: [
       {
         path: 'dashboard',
@@ -90,8 +91,23 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
         meta: {
           title: 'Dashboard',
-          icon: 'dashboard'
+          icon: 'el-icon-platform-eleme'
         }
+      }
+    ]
+  },
+  {
+    path: '/redirect',
+    component: Layout,
+    meta: {
+      hidden: true
+    },
+    children: [
+      {
+        // 带参数的动态路由正则匹配 文档说明
+        // https://next.router.vuejs.org/zh/guide/essentials/route-matching-syntax.html#%E5%8F%AF%E9%87%8D%E5%A4%8D%E7%9A%84%E5%8F%82%E6%95%B0
+        path: '/redirect/:path(.*)', // 要匹配多级路由 应该加*号
+        component: () => import('@/views/redirect/index.vue')
       }
     ]
   }

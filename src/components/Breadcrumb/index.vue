@@ -38,18 +38,18 @@ export default defineComponent({
 
     const getBreadCrumb = () => {
       // 只存有title的
-      let matched = route.matched.filter(item => item.meta && item.meta.title) as PartialRouteLocationMatched[]
+      const matched = route.matched.filter(item => item.meta && item.meta.title) as PartialRouteLocationMatched[]
 
-      const first = matched[0]
+      // const first = matched[0]
 
-      if (!isDashboard(first)) {
-        matched = ([{
-          path: '/dashboard',
-          meta: {
-            title: 'Dashboard'
-          }
-        }]as PartialRouteLocationMatched[]).concat(matched)
-      }
+      // if (!isDashboard(first)) {
+      //   matched = ([{
+      //     path: '/dashboard',
+      //     meta: {
+      //       title: 'Dashboard'
+      //     }
+      //   }]as PartialRouteLocationMatched[]).concat(matched)
+      // }
 
       // route.meta.breadcrumb自定义属性 如果为false 匹配到时 将不会再面包屑导航显示该路由
       levelList.value = matched.filter(item => item.meta && item.meta.title && item.meta.breadcrumb !== false)

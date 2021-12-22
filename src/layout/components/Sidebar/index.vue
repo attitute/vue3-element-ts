@@ -21,9 +21,9 @@
   </div>
 </template>
 <script lang="ts">
-import variables from '@/styles/variables.scss'
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import variables from '@/styles/variables.scss'
 import { routes } from '@/router'
 import SidebarItem from './SidebarItem.vue'
 import { useStore } from '@/store'
@@ -35,7 +35,7 @@ export default defineComponent({
   setup() {
     const route = useRoute() // 相当于this.$route
     const store = useStore()
-    console.log('store:', useStore)
+    console.log('store:', store)
     // 根据路由路径 对应 当前激活的菜单 页面刷新后 激活当前路由匹配的菜单
     const activeMenu = computed(() => {
       const { path, meta } = route

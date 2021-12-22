@@ -26,21 +26,14 @@ export const key: InjectionKey<Store<IRootState>> = Symbol()
 const persisteAppState = createPersistedState({
   storage: window.sessionStorage, // 指定storage 也可自定义
   key: 'vuex_app', // 存储名 默认都是vuex 多个模块需要指定 否则会覆盖
-  // paths: ['app'], // 针对app这个模块持久化
+  // paths: ['app'] // 针对app这个模块持久化
   // 只针对app模块下sidebar.opened状态持久化
-  paths: ['app.sidebar.opened'] // 通过点连接符指定state路径
+  paths: ['app.sidebar.opened', 'app.size'] // 通过点连接符指定state路径
 })
 
-// 针对test模块持久化
-// const persisteTestState = createPersistedState({
-//  storage: window.sessionStorage,
-//  key: 'vuex_test',
-//  paths: ['test'] // 针对test这个模块持久化
-// })
 export default createStore<IRootState>({
   plugins: [
     persisteAppState
-    // persisteTestState // 只是测试多模块持久化
   ],
   getters,
   modules: {
@@ -55,6 +48,3 @@ export default createStore<IRootState>({
 export function useStore () {
   return baseUseStore(key)
 }
-
-// vuex持久化 vuex-persistedstate文档说明
-// https://www.npmjs.com/package/vuex-persistedstate
