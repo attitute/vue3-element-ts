@@ -7,14 +7,16 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     path: '/documentation',
     component: Layout, // 布局组件作为一级路由
     redirect: '/documentation/index',
+    name: 'DocumentationLayout',
     children: [
       {
-        path: '/documentation/index',
+        path: 'index',
         name: 'Documentation',
         component: () => import(/* webpackChunkName: "documentation" */ '@/views/documentation/index.vue'),
         meta: {
           title: 'Documentation',
           icon: 'documentation'
+          // noCache: false // 路由是否缓存
         }
       }
     ]
@@ -23,6 +25,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     path: '/guide',
     component: Layout,
     redirect: '/guide/index',
+    name: 'GuideLayout',
     children: [
       {
         path: 'index',
@@ -38,29 +41,38 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
   {
     path: '/system',
     component: Layout,
-    redirect: '/system/user',
+    redirect: '/system/menu',
+    name: 'SystemLayout',
     meta: {
       title: 'System',
       icon: 'lock',
-      breadcrumb: false,
-      alwaysShow: true
+      alwaysShow: true // 展示
     },
     children: [
       {
         path: 'menu',
+        name: 'Menu',
         component: () => import(/* webpackChunkName: "menu" */ '@/views/system/menu.vue'),
         meta: {
           title: 'Menu Management'
         }
+      },
+      {
+        path: 'role',
+        name: 'Role',
+        component: () => import(/* webpackChunkName: "menu" */ '@/views/system/role.vue'),
+        meta: {
+          title: 'Role Management'
+        }
+      },
+      {
+        path: 'user',
+        name: 'User',
+        component: () => import(/* webpackChunkName: "menu" */ '@/views/system/user.vue'),
+        meta: {
+          title: 'User Management'
+        }
       }
-      // {
-      //   path: 'role',
-      //   component: () => import(/* webpackChunkName: "menu" */ '@/views/system/role.vue'),
-      //   meta: {
-      //     title: 'Role Management',
-      //     hidden: true
-      //   }
-      // }
     ]
   },
   { // 外链路由
@@ -84,6 +96,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
+    // name: 'DashboardLayout',
     children: [
       {
         path: 'dashboard',
@@ -91,7 +104,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
         meta: {
           title: 'Dashboard',
-          icon: 'el-icon-platform-eleme'
+          icon: 'el-icon-platform-eleme',
+          affix: true // 是不是固定tag
         }
       }
     ]
@@ -102,6 +116,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     meta: {
       hidden: true
     },
+    name: 'Redirect',
     children: [
       {
         // 带参数的动态路由正则匹配 文档说明

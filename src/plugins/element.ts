@@ -15,7 +15,8 @@ import {
   ElDropdown,
   ElDropdownItem,
   ElDropdownMenu,
-  ElTooltip
+  ElTooltip,
+  ElScrollbar
 
 } from 'element-plus'
 // element-plus默认是英文
@@ -49,7 +50,8 @@ export default (app:App, options: ElementOptions): void => {
     ElDropdown,
     ElDropdownItem,
     ElDropdownMenu,
-    ElTooltip
+    ElTooltip,
+    ElScrollbar
   ]
 
   // vue挂载全局

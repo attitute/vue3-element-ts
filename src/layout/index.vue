@@ -6,7 +6,7 @@
     <div class="main-container">
       <div class="header">
         <Navbar />
-        <div class="tagsview">tagsview</div>
+        <TagsView />
       </div>
       <AppMain />
     </div>
@@ -18,11 +18,13 @@ import { defineComponent } from 'vue'
 import Sidebar from './components/Sidebar'
 import AppMain from './components/AppMain'
 import Navbar from './components/Navbar'
+import TagsView from './components/TagsView'
 export default defineComponent({
   components: {
     Sidebar,
     AppMain,
-    Navbar
+    Navbar,
+    TagsView
   }
 })
 </script>
@@ -45,7 +47,7 @@ export default defineComponent({
         }
       }
       .app-main {
-        /* 50= navbar  50  如果有tagsview + 34  */
+        /* 50= navbar  50  如果有Tagsview + 34  */
         min-height: calc(100vh - 84px);
       }
     }

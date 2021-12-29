@@ -11,15 +11,16 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, computed, ref } from 'vue'
+import { defineComponent, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
-
+import { useStore } from '@/store'
 export default defineComponent({
   name: 'AppMain',
   setup() {
+    const store = useStore()
     const route = useRoute() // this.route
     const key = computed(() => route.path)
-    const cacheViews = ref([])
+    const cacheViews = computed(() => store.state.tagsView.cachedViews)
     return {
       key,
       cacheViews

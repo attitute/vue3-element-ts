@@ -8,6 +8,7 @@
       <el-tooltip content="Global Size" effect="dark" placement="bottom">
         <size-select class="right-menu-item hover-effect" />
       </el-tooltip>
+      <Avatar></Avatar>
     </div>
   </div>
 </template>
@@ -18,6 +19,7 @@ import Breadcrumb from '@/components/Breadcrumb/index.vue'
 import Hambuger from '@/components/Hambuger/index.vue'
 import Screenfull from '@/components/Screenfull/index.vue'
 import SizeSelect from '@/components/SizeSelect/index.vue'
+import Avatar from '@/components/Avatar/index.vue'
 import { useStore } from '@/store/index'
 
 export default defineComponent({
@@ -26,7 +28,8 @@ export default defineComponent({
     Breadcrumb,
     Hambuger,
     Screenfull,
-    SizeSelect
+    SizeSelect,
+    Avatar
   },
   setup() {
     const store = useStore()
@@ -49,6 +52,9 @@ export default defineComponent({
 <style lang="scss">
   .navbar {
     display: flex;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 21, 41, .08);
+    box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
     .right-menu {
       flex: 1;
       display: flex;
